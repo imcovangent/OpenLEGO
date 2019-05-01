@@ -4,7 +4,7 @@ from ssbjkadmos.utils.database import clean, try_to_remove
 
 # TODO: Add renamed input and output files...
 
-list_disciplines = ['AeroAnalysis', 'PerformanceAnalysis', 'PropulsionAnalysis', 'StructuralAnalysis', 'DpdxAnalysis']
+list_disciplines = ['Aerodynamics', 'Performance', 'Propulsion', 'Structures', 'DpdxCalc', 'Objective', 'Constraints']
 
 for discipline in list_disciplines:
     try_to_remove('{}{}'.format(discipline, '-input.xml'))

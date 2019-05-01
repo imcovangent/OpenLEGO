@@ -1,6 +1,6 @@
 import os
 
-from OpenLEGO_dev_scripts.test_cases.ssbj.kb.create_cmdows_file import create_cmdows_file
+from examples.knowledgebases.ssbj.create_cmdows_file import create_cmdows_file
 from ssbjkadmos.utils.database import deploy, clean
 
 dir_path = os.path.dirname(os.path.realpath(__file__))

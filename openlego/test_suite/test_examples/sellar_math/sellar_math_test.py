@@ -29,7 +29,7 @@ from math import exp
 from openlego.core.problem import LEGOProblem
 from openlego.test_suite.test_examples.sellar_functions import get_couplings, get_objective, get_g1, \
     get_g2
-from openlego.utils.general_utils import clean_dir_filtered
+from openlego.utils.general_utils import clean_dir_filtered, pyoptsparse_installed
 
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
@@ -202,7 +202,11 @@ class TestSellarMath(unittest.TestCase):
 
     def test_co(self):
         """Solve the Sellar problem using the Collaborative Optimization architecture."""
-        self.assertion_mdo(*run_openlego(9))
+        if pyoptsparse_installed():
+            self.assertion_mdo(*run_openlego(9))
+        else:
+            print('Skipped test due to missing PyOptSparse installation.')
+            pass
 
     def __del__(self):
         clean_dir_filtered(os.path.dirname(__file__), ['case_reader_', 'n2_Mdao_',

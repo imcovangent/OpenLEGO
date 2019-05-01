@@ -50,7 +50,7 @@ mdao_definitions = ['unconverged-MDA-GS',     # 0
 
 
 def get_loop_items(analyze_mdao_definitions):
-    # type: (Union(int, list, str)) -> List[str]
+    # type: (Union[int, list, str]) -> List[str]
     """Retrieve the list of MDAO definitions to be analyzed based on different input settings.
 
     Parameters

@@ -20,6 +20,7 @@ This file contains code to clean and deploy the knowledge base of the test SSBJ 
 from __future__ import absolute_import, division, print_function
 
 import os
+import shutil
 import sys
 
 from ssbjkadmos.utils.database import deploy as database_deploy
@@ -40,7 +41,7 @@ def deploy():
         replaces = ['AeroAnalysis-', 'PerformanceAnalysis-', 'PropulsionAnalysis-', 'StructuralAnalysis-', 'DpdxAnalysis-']
         for i, check in enumerate(checks):
             if check in file:
-                os.rename(os.path.join(dir_path, file), os.path.join(dir_path, replaces[i] + file[len(check):]))
+                shutil.move(os.path.join(dir_path, file), os.path.join(dir_path, replaces[i] + file[len(check):]))
 
     os.remove(os.path.join(dir_path, 'Constraints-input.xml'))
     os.remove(os.path.join(dir_path, 'Constraints-output.xml'))
